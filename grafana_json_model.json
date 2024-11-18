@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 11074,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1731958816236,
+  "id": 5,
+  "iteration": 1731960037328,
   "links": [
     {
       "icon": "bolt",
@@ -860,7 +860,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "For tests",
+  "title": "Huuuge monitoring",
   "uid": "xfpJB9888",
-  "version": 4
+  "version": 1
 }
