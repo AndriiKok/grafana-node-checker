@@ -19,17 +19,17 @@ const writeMetricsToFile = async () => {
 };
 
 const checkHealth = async () => {
-  exec('$HOME/dill/health_check.sh', (error, stdout, stderr) => {
+  exec('curl -X GET http://localhost:8645/health', (error, stdout, stderr) => {
     if (error) {
-      console.error(\`Error executing script: \${error}\`);
+      console.error(`Error executing script: ${error}`);
       nodeHealthMetric.set(0);
       console.log('Node health status: Not Ready (Error executing script)');
-    } else if (stdout.includes('node not running')) {
-      nodeHealthMetric.set(0);
-      console.log('Node health status: Not Ready (node not running)');
-    } else {
+    } else if (stdout.includes('Ready')) {
       nodeHealthMetric.set(1);
       console.log('Node health status: Ready');
+    } else {
+      nodeHealthMetric.set(0);
+      console.log('Node health status: Not Ready');
     }
     writeMetricsToFile();
   });
