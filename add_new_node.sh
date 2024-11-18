@@ -21,7 +21,7 @@ const writeMetricsToFile = async () => {
 const checkHealth = async () => {
   exec('$HOME/dill/health_check.sh', (error, stdout, stderr) => {
     if (error) {
-      console.error(`Error executing script: ${error}`);
+      console.error(\`Error executing script: \${error}\`);
       nodeHealthMetric.set(0);
       console.log('Node health status: Not Ready (Error executing script)');
     } else if (stdout.includes('node not running')) {
@@ -39,7 +39,9 @@ checkHealth();
 
 EOF
 
+# Получаем абсолютный путь к node
+node_path=$(which node)
 
 # Добавляем файл в крон с частотой выполнения каждую минуту
-cron_entry="* * * * * $(which node) /root/Grafana_node_checker/${project}_health_checker.js"
+cron_entry="* * * * * $node_path /root/Grafana_node_checker/${project}_health_checker.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
