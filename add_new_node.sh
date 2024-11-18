@@ -2,7 +2,7 @@ read -p "Введите название проекта, который нужн
 mkdir /root/Grafana_node_checker
 # cd /root/Grafana_node_checker && touch $project_health_checker.js
 
-sudo tee <<EOF >/dev/null /root/Grafana_node_checker/$project_health_checker.js
+sudo tee /root/Grafana_node_checker/${project}_health_checker.js > /dev/null <<EOF
 global:
   scrape_interval:     15s
   evaluation_interval: 15s
