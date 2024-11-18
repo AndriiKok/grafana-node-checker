@@ -43,7 +43,7 @@ EOF
 node_path=$(which node)
 
 # Добавляем файл в крон с частотой выполнения каждую минуту
-sourse .profile
+source .profile
 cron_entry="* * * * * $node_path /root/Grafana_node_checker/${project}_health_checker.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
