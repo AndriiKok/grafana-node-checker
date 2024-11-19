@@ -2,7 +2,7 @@ read -p "Введите название проекта, который нужн
 mkdir -p /root/Grafana_node_checker
 
 # Создаём файл со скриптом проверки ноды
-sudo tee /root/Grafana_node_checker/${project}_health_checker.js > /dev/null <<'EOF'
+sudo tee /root/Grafana_node_checker/${project}_health_checker.js > /dev/null <<EOF
 const fs = require('fs');
 const { exec } = require('child_process');
 const client = require('prom-client');
