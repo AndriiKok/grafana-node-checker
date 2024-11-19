@@ -2,20 +2,21 @@ read -p "Введите название проекта, который нужн
 mkdir -p /root/Grafana_node_checker
 
 # Создаём файл со скриптом проверки ноды
-sudo tee <<EOF > /dev/null /root/Grafana_node_checker/${project}_health_checker.js
+sudo tee > /dev/null /root/Grafana_node_checker/$project-health-checker.js
+<<EOF
 const fs = require('fs');
 const { exec } = require('child_process');
 const client = require('prom-client');
 
 const nodeHealthMetric = new client.Gauge({
-  name: '${project}_health_status',
-  help: '${project} health status'
+  name: '$project-health-status',
+  help: '$project health status'
 });
 
 const writeMetricsToFile = async () => {
   const metrics = await client.register.metrics();
-  fs.writeFileSync('/var/lib/prometheus/node-exporter/${project}_health_metrics.prom', metrics);
-  console.log('Metrics written to file: /var/lib/prometheus/node-exporter/${project}_health_metrics.prom');
+  fs.writeFileSync('/var/lib/prometheus/node-exporter/$project-health-metrics.prom', metrics);
+  console.log('Metrics written to file: /var/lib/prometheus/node-exporter/$project-health-metrics.prom');
 };
 
 const checkHealth = async () => {
@@ -44,7 +45,7 @@ node_path=$(which node)
 
 # Добавляем файл в крон с частотой выполнения каждую минуту
 source .profile
-cron_entry="* * * * * $node_path /root/Grafana_node_checker/${project}_health_checker.js"
+cron_entry="* * * * * $node_path /root/Grafana_node_checker/$project-health-checker.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
 # Добавляем в сервисник Node Exporter ключ для запуска сервиса с папкой с новой метрикой
