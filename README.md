@@ -29,6 +29,6 @@
    ![image](https://github.com/user-attachments/assets/4d7b64b3-7e51-4613-a004-145092c38040)
 2. В открывшемся разделе Queries смотрим, чтобы в поле Query был выбран Prometheus.
 3. Если делаем первый раз, то в блоке A в поле Metrics указываем waku_health_checker, Format - Table, Instant - ON. Если добавляем не первую ноду, то Add query и заполняем.
-4. Переходим в боковое меню Visualization, внизу Add column style. В добавленном блоке кликаем в инпут Apply to columns named и выбираем Value, Column Header - Waku, Type - String, кликаем плюсик в Value Mappings Type дважды, добавляем для значения 1 - Fine, 0 - Fail. Thresholds Color Mode - Cell, Colors - Invert.
+4. Переходим в боковое меню Visualization, внизу Add column style. В добавленном блоке кликаем в инпут Apply to columns named и выбираем Value, Column Header - Waku, Type - String, кликаем плюсик в Value Mappings Type дважды, добавляем для значения 1 - Fine, 0 - Fail. Thresholds - 0,1, Color Mode - Cell.
 
 Важно. Если добавляем второй, то в первом блоке значение Value изменится на Value A, нужно будет изменить значение в Apply to columns named.
