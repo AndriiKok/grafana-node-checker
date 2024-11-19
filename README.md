@@ -18,7 +18,7 @@
 
 ## 2.	Добавляем новый виджет в Grafana
 Этот шаг пропускаем, если виджет для мониторинга нод уже ставил раньше.
-Иначе открываем Dashboard settings и в разделе JSOM Model вставляем весь текст из файла:
+Иначе открываем Dashboard settings и в разделе JSON Model вставляем весь текст из файла:
 
     https://github.com/AndriiKok/grafana-node-checker/blob/main/json_model_with_new_widget.json
 
