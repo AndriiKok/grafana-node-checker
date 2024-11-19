@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 11074,
   "graphTooltip": 0,
-  "id": 5,
-  "iteration": 1731960037328,
+  "id": 1,
+  "iteration": 1732005662366,
   "links": [
     {
       "icon": "bolt",
@@ -48,87 +48,13 @@
   ],
   "panels": [
     {
-      "columns": [],
-      "datasource": "Prometheus",
-      "fontSize": "80%",
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 189,
-      "options": {},
-      "pageSize": null,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "__name__",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Nodes Checker",
-      "transform": "table",
-      "type": "table"
-    },
-    {
       "collapsed": false,
       "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 0
       },
       "id": 187,
       "panels": [],
@@ -151,14 +77,14 @@
         "h": 17,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 1
       },
       "id": 185,
       "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
-        "col": 6,
+        "col": null,
         "desc": false
       },
       "styles": [
@@ -860,7 +786,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Huuuge monitoring",
-  "uid": "xfpJB9888",
-  "version": 1
+  "title": "Node Exporter Dashboard",
+  "uid": "xfpJB9FGZ",
+  "version": 3
 }
