@@ -5,8 +5,7 @@
    
 На сервер с нодой, которую хотим мониторить, устанавливаем всё необходимое. Скрипт попросит ввести только название проекта, например, waku. Советую указать маленькими буквами без пробелов и спецсимволов.
 
-	source .profile
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/add_new_node.sh)
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/add_new_node.sh)
 
 Что сделал скрипт:
 - установил необходимые npm пакеты
