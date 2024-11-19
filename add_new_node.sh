@@ -1,8 +1,10 @@
 read -p "Введите название проекта, который нужно добавить: " project
 mkdir -p /root/Grafana_node_checker
+source .profile
+sudo npm prom-client
 
 # Создаём файл со скриптом проверки ноды
-sudo tee /root/Grafana_node_checker/$project-health-checker.js <<EOF
+sudo tee /root/Grafana_node_checker/$project-health-checker.js >/dev/null <<EOF
 const fs = require('fs');
 const { exec } = require('child_process');
 const client = require('prom-client');
