@@ -13,14 +13,14 @@ const { exec } = require('child_process');
 const client = require('prom-client');
 
 const nodeHealthMetric = new client.Gauge({
-  name: '$file_name',
-  help: '$project health status'
+  name: '${file_name}',
+  help: '${project} health status'
 });
 
 const writeMetricsToFile = async () => {
   const metrics = await client.register.metrics();
-  fs.writeFileSync('/var/lib/prometheus/node-exporter/$file_name.prom', metrics);
-  console.log('Metrics written to file: /var/lib/prometheus/node-exporter/$file_name.prom');
+  fs.writeFileSync('/var/lib/prometheus/node-exporter/${file_name}.prom', metrics);
+  console.log('Metrics written to file: /var/lib/prometheus/node-exporter/${file_name}.prom');
 };
 
 const checkHealth = async () => {
