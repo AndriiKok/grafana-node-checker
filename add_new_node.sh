@@ -26,3 +26,5 @@ if ! grep -q -- "--collector" /lib/systemd/system/prometheus-node-exporter.servi
   sudo systemctl daemon-reload
   sudo systemctl restart prometheus-node-exporter
 fi
+
+echo "Готово, если нет ошибок выполнения скрипта"
