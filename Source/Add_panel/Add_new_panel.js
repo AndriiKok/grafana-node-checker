@@ -111,6 +111,11 @@ async function addPanel() {
       }
     });
 
+    // PANEL_UID - это id новой панели 
+    const newPanelUid = updateDashboardResponse.data.id;
+    // Выводим PANEL_UID для захвата в bash-скрипте 
+    console.log('PANEL_UID:', newPanelUid);
+    
     console.log('Панель успешно добавлена:', updateDashboardResponse.data);
   } catch (error) {
     console.error('Ошибка при добавлении панели:', error.response ? error.response.data : error.message);
