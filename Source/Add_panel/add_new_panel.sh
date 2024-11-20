@@ -22,29 +22,8 @@ sed -i "s/server_ip/${server_ip}/g" /root/adding_panel/add_new_panel.js
 sed -i "s/api_key/${grafana_api_key}/g" /root/adding_panel/add_new_panel.js
 sed -i "s/dash_uid/${dashboard_uid}/g" /root/adding_panel/add_new_panel.js
 
-# Проверяем, установлен ли npm
-if command -v npm > /dev/null 2>&1; then
-  echo "Версия npm $(npm -v)"
-else
-  echo "npm не установлен. Идёт установка..."
-
-  # Установка Node.js и npm
-  sudo apt-get update
-  source ~/.bashrc
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-  source ~/.bashrc
-  nvm install v22.11.0
-  source ~/.profile
-  
-  # Проверяем, успешно ли установился npm
-  if command -v npm > /dev/null 2>&1; then
-    echo "npm успешно установлен. Версия: $(npm -v)"
-  else
-    echo "Произошла ошибка при установке npm."
-  fi
-fi
-
 echo "Устанавливаем требуемые пакеты npm..."
+source ~/.profile
 npm install axios
 
 # Запуск файла add_new_panel.js с помощью Node.js
