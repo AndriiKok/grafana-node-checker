@@ -42,4 +42,4 @@ else
 fi
 
 # Удаление папки /root/adding_panel вместе с её содержимым
-rm -rf /root/adding_panel
+# rm -rf /root/adding_panel
