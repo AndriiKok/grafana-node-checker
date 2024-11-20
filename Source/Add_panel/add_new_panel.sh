@@ -33,9 +33,13 @@ $(which node) /root/adding_panel/add_new_panel.js
 # Проверка успешности выполнения скрипта
 if [ $? -eq 0 ]; then
   echo "Готово, проверяйте свой дашборд"
-  
-  # Удаление папки /root/adding_panel вместе с её содержимым
-#  rm -rf /root/adding_panel
+    
 else
-  echo "Произошла ошибка при выполнении скрипта."
+  sed -i '/export GRAFANA_API_KEY=/d' ~/.profile
+  sed -i '/export DASHBOARD_UID=/d' ~/.profile
+  sed -i '/export GRAFANA_SERVER_IP=/d' ~/.profile
+  echo "Произошла ошибка при выполнении скрипта, все введённые данные удалены"
 fi
+
+# Удаление папки /root/adding_panel вместе с её содержимым
+rm -rf /root/adding_panel
