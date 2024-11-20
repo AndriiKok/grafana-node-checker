@@ -16,6 +16,7 @@ source ~/.profile
 echo "Значения успешно добавлены в .profile"
 
 # Скачиваем скрипт и вставляем значения переменных
+mkdir -p /root/adding_panel
 curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Add_panel/Add_new_panel.js > "/root/adding_panel/add_new_panel.js"
 sed -i "s/server_ip/${server_ip}/g" /root/adding_panel/add_new_panel.js
 sed -i "s/api_key/${grafana_api_key}/g" /root/adding_panel/add_new_panel.js
@@ -33,6 +34,7 @@ else
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
   source ~/.bashrc
   nvm install v22.11.0
+  source ~/.profile
   
   # Проверяем, успешно ли установился npm
   if command -v npm > /dev/null 2>&1; then
