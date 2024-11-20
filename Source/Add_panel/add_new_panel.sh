@@ -9,7 +9,7 @@ read -p "Введите значение Dashboard UID: " dashboard_uid
 echo "export DASHBOARD_UID=${dashboard_uid}" >> ~/.profile
 
 # Определяем IP-адрес текущего сервера
-grafana_server_ip=$(hostname -I | awk '{print $1}')
+read -p "Введите значение Grafana Server IP: " grafana_server_ip
 echo "export SERVER_IP=${grafana_server_ip}" >> ~/.profile
 
 source ~/.profile
