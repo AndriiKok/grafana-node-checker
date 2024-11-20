@@ -104,7 +104,7 @@ async function addPanel() {
     };
 
     // Отправляем запрос на обновление дашборда
-    const updateDashboardResponse = await axios.post('http://142.132.197.171:3002/api/dashboards/db', updateDashboardPayload, {
+    const updateDashboardResponse = await axios.post('http://server_ip:3002/api/dashboards/db', updateDashboardPayload, {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
