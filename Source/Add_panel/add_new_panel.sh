@@ -35,7 +35,7 @@ if [ $? -eq 0 ]; then
   echo "Готово, проверяйте свой дашборд"
   
   # Удаление папки /root/adding_panel вместе с её содержимым
-  rm -rf /root/adding_panel
+#  rm -rf /root/adding_panel
 else
   echo "Произошла ошибка при выполнении скрипта."
 fi
