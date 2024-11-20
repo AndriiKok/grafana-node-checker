@@ -46,7 +46,7 @@ echo "Создаём новую панель для вашего дашборд�
 PANEL_UID=$($(which node) /root/adding_panel/add_new_panel.js | grep 'PANEL_UID' | awk -F': ' '{print $2}')
 
 # Проверка успешности выполнения скрипта
-if [ -n "$PANEL_UID" ]; then echo "Готово, проверяйте свой дашборд" 
+if [ -n "$PANEL_UID" ]; then echo "Готово, обновите свой дашборд" 
 echo "PANEL_UID=${PANEL_UID}" >> ~/.profile
 else
   sed -i '/export GRAFANA_API_KEY=/d' ~/.profile
