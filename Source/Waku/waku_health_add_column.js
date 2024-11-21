@@ -25,7 +25,7 @@ const newStyle = {
   unit: "short",
   valueMaps: [
     {
-      text: "Fine",
+      text: "OK",
       value: "1"
     },
     {
