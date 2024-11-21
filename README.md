@@ -37,24 +37,14 @@
 
 ## Waku
 ### Проверка healthcheck
-Метрика
+Метрики
 
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_health_check.sh)
+	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_metrics.sh)
 
 
-Колонка 
+Колонки 
 
 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_columns.sh)
-
-### Проверка количества пиров
-Метрика
-
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_peers_check.sh)
-
-
-Колонка 
-
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_peers_add_column.sh)
 
 
 
