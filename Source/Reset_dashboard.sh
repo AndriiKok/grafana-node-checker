@@ -36,6 +36,15 @@ json_url="https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/
 dashboard_api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/uid/${DASHBOARD_UID}"
 api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/db"
 
+# Проверяем URL и ключи
+echo "Проверка переменных:"
+echo "GRAFANA_API_KEY: $GRAFANA_API_KEY"
+echo "DASHBOARD_UID: $DASHBOARD_UID"
+echo "GRAFANA_SERVER_IP: $GRAFANA_SERVER_IP"
+echo "JSON URL: $json_url"
+echo "Dashboard API URL: $dashboard_api_url"
+echo "API URL: $api_url"
+
 # Получаем текущий дашборд
 echo "Получение текущего дашборда по адресу: $dashboard_api_url"
 dashboard_data=$(curl -s -H "Authorization: Bearer $GRAFANA_API_KEY" "$dashboard_api_url")
