@@ -26,7 +26,7 @@ const newStyle = {
     }
 
 const newTarget = {
-  expr: "waku_health_check",
+  expr: "waku_peers_check",
   format: "table",
   instant: true,
   refId: "B"
