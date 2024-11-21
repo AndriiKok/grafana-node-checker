@@ -18,8 +18,8 @@ const newStyle = {
   mappingType: 1,
   pattern: "Value #A",
   thresholds: [
-    "1",
-    "0"
+    "0.5",
+    "0.9"
   ],
   type: "string",
   unit: "short",
