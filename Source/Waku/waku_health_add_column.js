@@ -16,7 +16,7 @@ const newStyle = {
   dateFormat: "YYYY-MM-DD HH:mm:ss",
   decimals: 2,
   mappingType: 1,
-  pattern: "Value",
+  pattern: "Value #A",
   thresholds: [
     "1",
     "0"
