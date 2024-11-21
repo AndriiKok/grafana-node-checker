@@ -67,8 +67,8 @@
 
 ## Если всё сломалось
 
-Можем быстро восстановить первоначальный вид дашборда мониторинга серверов
+Можем быстро восстановить первоначальный вид дашборда мониторинга серверов. Удаляем текущий дашборд через управление дашбордами, копируем содержимое файла ниже и через импорт создаём новый дашборд. У вас изменится UID дашборда, замените на новый в .profile.
 
- 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Reset_dashboard.sh)
+ 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/json_model_original.json)
 
 
