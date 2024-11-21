@@ -36,7 +36,7 @@ const newStyle = {
 };
 
 const newTarget = {
-  expr: "waku_health_check",
+  expr: "waku_health_check{origin_prometheus=~"$origin_prometheus",job=~"$job"} - 0",
   format: "table",
   instant: true,
   refId: "A"
