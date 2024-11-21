@@ -41,3 +41,8 @@
 
 
 
+## Если всё сломалось
+
+Можем быстро восстановить первоначальный вид дашборда мониторинга серверов
+
+ 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Reset_dashboard.sh)
