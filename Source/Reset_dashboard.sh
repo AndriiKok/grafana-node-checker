@@ -32,7 +32,7 @@ source ~/.profile
 echo "Значения успешно добавлены или загружены из .profile"
 
 # Указываем необходимые переменные
-json_url="https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/original_model_json"
+json_url="https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/json_model_original.json"
 dashboard_api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/uid/${DASHBOARD_UID}"
 api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/db"
 
@@ -50,6 +50,12 @@ current_version=$(echo "$dashboard_data" | jq -r '.dashboard.version')
 echo "Текущий title: $current_title"
 echo "Текущий uid: $current_uid"
 echo "Текущая версия: $current_version"
+
+# Если current_title пустое, задать значение вручную или по умолчанию
+if [ -z "$current_title" ]; then
+  current_title="Default Title"
+  echo "Title пустое, устанавливаем значение по умолчанию: $current_title"
+fi
 
 # Скачиваем JSON модель дашборда
 curl -sSL "$json_url" -o /tmp/json_model_original.json
