@@ -14,7 +14,7 @@
 
 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Add_panel/add_new_panel.sh)
 
-Готово, скрипт также вернул UID нового виджета и записал в .profile.
+Готово, скрипт также вернул UID нового виджета и записал всё в .profile.
 
 
 ## Проекты
@@ -35,7 +35,7 @@
 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_health_check.sh)
 
 
-Колонка
+Колонка healthcheck
 
 	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_health_add_column.sh)
 
