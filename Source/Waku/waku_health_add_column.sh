@@ -44,7 +44,7 @@ source ~/.profile
 npm install axios
 
 # Запуск файла add_new_panel.js с помощью Node.js
-echo "Создаём новую панель для вашего дашборда..."
+echo "Добавляем новую колонку Waku health..."
 $(which node) /root/adding_panel_column/waku_health_add_column.js
 
 # Проверка успешности выполнения скрипта 
