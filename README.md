@@ -44,7 +44,7 @@
 
 Колонка 
 
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_health_add_column.sh)
+	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_columns.sh)
 
 ### Проверка количества пиров
 Метрика
