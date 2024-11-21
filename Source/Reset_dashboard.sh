@@ -32,7 +32,7 @@ source ~/.profile
 echo "Значения успешно добавлены или загружены из .profile"
 
 # Указываем необходимые переменные
-json_url="https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/json_model_original.json"
+json_url="https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/original_model_json"
 dashboard_api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/uid/${DASHBOARD_UID}"
 api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/db"
 
