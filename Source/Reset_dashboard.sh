@@ -37,12 +37,19 @@ dashboard_api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/uid/${DASHBOA
 api_url="http://${GRAFANA_SERVER_IP}:3002/api/dashboards/db"
 
 # Получаем текущий дашборд
+echo "Получение текущего дашборда по адресу: $dashboard_api_url"
 dashboard_data=$(curl -s -H "Authorization: Bearer $GRAFANA_API_KEY" "$dashboard_api_url")
+echo "Данные дашборда: $dashboard_data"
 
 # Извлекаем title, uid и version
 current_title=$(echo "$dashboard_data" | jq -r '.dashboard.title')
 current_uid=$(echo "$dashboard_data" | jq -r '.dashboard.uid')
 current_version=$(echo "$dashboard_data" | jq -r '.dashboard.version')
+
+# Проверка, что переменные были успешно извлечены
+echo "Текущий title: $current_title"
+echo "Текущий uid: $current_uid"
+echo "Текущая версия: $current_version"
 
 # Скачиваем JSON модель дашборда
 curl -sSL "$json_url" -o /tmp/json_model_original.json
@@ -57,6 +64,7 @@ json_data=$(cat /tmp/json_model_updated.json)
 update_payload=$(jq -n --argjson dashboard "$json_data" '{dashboard: $dashboard, overwrite: true}')
 
 # Отправляем запрос на обновление дашборда
+echo "Отправка запроса на обновление дашборда по адресу: $api_url"
 response=$(curl -s -X POST "$api_url" -H "Authorization: Bearer $GRAFANA_API_KEY" -H "Content-Type: application/json" -d "$update_payload")
 
 # Проверка результата
