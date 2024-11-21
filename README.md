@@ -16,7 +16,7 @@
 ## Добавляем новый виджет в Grafana
 Потребуется указать API ключ, UID дашборда и адрес сервера в формате XX.XX.XX.XX, на котором стоит Grafana:
 
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Add_panel/add_new_panel.sh)
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Add_panel/add_new_panel.sh)
 
 Готово, скрипт также вернул UID нового виджета и записал всё в .profile.
 <br/>
