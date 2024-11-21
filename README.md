@@ -44,7 +44,7 @@
 
 Колонки 
 
-	bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_columns.sh)
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_columns.sh)
 
 
 
