@@ -36,8 +36,7 @@
 <br/>
 
 ## Waku
-### Проверка healthcheck
-Метрики
+Метрики healthcheck и peers
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Waku/waku_add_metrics.sh)
 
