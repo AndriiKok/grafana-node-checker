@@ -47,7 +47,6 @@
 <br/>
 <br/>
 <br/>
-
 ## Dill
 Метрика healthcheck
 
@@ -57,8 +56,6 @@
 Колонка 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_add_columns.sh)
-
-
 
 
 
