@@ -61,4 +61,5 @@ if [ $? -eq 0 ]; then
   echo "Произошла ошибка при выполнении скрипта" 
 fi 
   
-# Удаление папки /root/adding_panel вместе с её содержимым rm -rf /root/adding_panel
+# Удаление папки /root/adding_panel вместе с её содержимым 
+rm -rf /root/adding_panel
