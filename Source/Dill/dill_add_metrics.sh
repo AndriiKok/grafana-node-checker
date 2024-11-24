@@ -15,8 +15,8 @@ cron_entry="* * * * * $node_path /root/Grafana_node_checker/dill_health_check.js
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
 # Добавляем в сервисник Node Exporter ключ для запуска сервиса с папкой с новой метрикой
-if ! grep -q -- "--collector.textfile.directory=/var/lib/prometheus/node-exporter/" /lib/systemd/system/prometheus-node-exporter.service; then
-  sudo sed -i '/^ExecStart/s|$| --collector.textfile.directory=/var/lib/prometheus/node-exporter/|' /lib/systemd/system/prometheus-node-exporter.service
+if ! grep -q -- "--collector.textfile.directory=/var/lib/prometheus/node-exporter" /lib/systemd/system/prometheus-node-exporter.service; then
+  sudo sed -i '/^ExecStart/s|$| --collector.textfile.directory=/var/lib/prometheus/node-exporter|' /lib/systemd/system/prometheus-node-exporter.service
   sudo systemctl daemon-reload
   sudo systemctl restart prometheus-node-exporter
 fi
