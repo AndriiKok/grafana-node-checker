@@ -57,6 +57,19 @@
 Колонка 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_add_columns.sh)
+<br/>
+<br/>
+<br/>
+
+## Nesa
+Метрика status
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_metrics.sh)
+
+
+Колонка 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_columns.sh)
 
 
 
