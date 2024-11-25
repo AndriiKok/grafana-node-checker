@@ -9,17 +9,17 @@ const newStyle = {
   alias: "Nesa Status",
   colorMode: "cell",
   colors: [
-    "rgba(245, 54, 54, 0.9)",
+   "rgba(50, 172, 45, 0.97)",
     "rgba(237, 129, 40, 0.89)",
-    "rgba(50, 172, 45, 0.97)"
+    "rgba(245, 54, 54, 0.9)"
   ],
   dateFormat: "YYYY-MM-DD HH:mm:ss",
   decimals: 2,
   mappingType: 1,
   pattern: "Value #D",
   thresholds: [
-    "0.5",
-    "0.9"
+    "1.1",
+    "2"
   ],
   type: "string",
   unit: "short",
