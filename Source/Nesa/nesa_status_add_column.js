@@ -30,7 +30,7 @@ const newStyle = {
     },
     {
       text: "Down",
-      value: "0"
+      value: "2"
     }
   ]
 };
