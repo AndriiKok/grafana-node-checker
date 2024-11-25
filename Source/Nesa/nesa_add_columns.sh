@@ -39,6 +39,18 @@ sed -i "s/api_key/${GRAFANA_API_KEY}/g" /root/adding_panel_column/nesa_status_ad
 sed -i "s/dash_uid/${DASHBOARD_UID}/g" /root/adding_panel_column/nesa_status_add_column.js
 sed -i "s/panel_uid/${PANEL_UID}/g" /root/adding_panel_column/nesa_status_add_column.js
 
+curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_heartbeat_add_column.js > "/root/adding_panel_column/nesa_heartbeat_add_column.js"
+sed -i "s/server_ip/${GRAFANA_SERVER_IP}/g" /root/adding_panel_column/nesa_heartbeat_add_column.js
+sed -i "s/api_key/${GRAFANA_API_KEY}/g" /root/adding_panel_column/nesa_heartbeat_add_column.js
+sed -i "s/dash_uid/${DASHBOARD_UID}/g" /root/adding_panel_column/nesa_heartbeat_add_column.js
+sed -i "s/panel_uid/${PANEL_UID}/g" /root/adding_panel_column/nesa_heartbeat_add_column.js
+
+curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_response_1h_diff_add_column.js > "/root/adding_panel_column/nesa_response_1h_diff_add_column.js"
+sed -i "s/server_ip/${GRAFANA_SERVER_IP}/g" /root/adding_panel_column/nesa_response_1h_diff_add_column.js
+sed -i "s/api_key/${GRAFANA_API_KEY}/g" /root/adding_panel_column/nesa_response_1h_diff_add_column.js
+sed -i "s/dash_uid/${DASHBOARD_UID}/g" /root/adding_panel_column/nesa_response_1h_diff_add_column.js
+sed -i "s/panel_uid/${PANEL_UID}/g" /root/adding_panel_column/nesa_response_1h_diff_add_column.js
+
 echo "Устанавливаем требуемые пакеты npm..."
 source ~/.profile
 npm install axios
@@ -46,6 +58,8 @@ npm install axios
 # Запуск файла add_new_panel.js с помощью Node.js
 echo "Добавляем новые колонки для Nesa..."
 $(which node) /root/adding_panel_column/nesa_status_add_column.js
+$(which node) /root/adding_panel_column/nesa_heartbeat_add_column.js
+$(which node) /root/adding_panel_column/nesa_response_1h_diff_add_column.js
 
 # Проверка успешности выполнения скрипта 
 if [ $? -eq 0 ]; then 
