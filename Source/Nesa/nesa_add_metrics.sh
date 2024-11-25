@@ -20,6 +20,8 @@ sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 cron_entry="0 * * * * $node_path /root/Grafana_node_checker/nesa_response_1h_diff_check.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
+$node_path /root/Grafana_node_checker/nesa_response_1h_diff_check.js
+
 # Добавляем в сервисник Node Exporter ключ для запуска сервиса с папкой с новой метрикой
 if ! grep -q -- "--collector.textfile.directory=/var/lib/prometheus/node-exporter" /lib/systemd/system/prometheus-node-exporter.service; then
   sudo sed -i '/^ExecStart/s|$| --collector.textfile.directory=/var/lib/prometheus/node-exporter|' /lib/systemd/system/prometheus-node-exporter.service
