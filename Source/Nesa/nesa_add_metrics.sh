@@ -17,7 +17,7 @@ cron_entry="* * * * * $node_path /root/Grafana_node_checker/nesa_status_check.js
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 cron_entry="* * * * * $node_path /root/Grafana_node_checker/nesa_heartbeat_check.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
-cron_entry="* * * * * $node_path /root/Grafana_node_checker/nesa_response_1h_diff_check.js"
+cron_entry="0 * * * * $node_path /root/Grafana_node_checker/nesa_response_1h_diff_check.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
 # Добавляем в сервисник Node Exporter ключ для запуска сервиса с папкой с новой метрикой
