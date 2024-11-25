@@ -16,12 +16,12 @@ const writeMetricsToFile = async () => {
 
 const getNodeID = async () => {
   return new Promise((resolve, reject) => {
-    exec("docker logs orchestrator 2>&1 | grep 'Node ID:' | awk -F': ' '{print $2}' | head -n 1", (error, stdout, stderr) => {
+    fs.readFile('/root/.nesa/identity/node_id.id', 'utf8', (error, data) => {
       if (error) {
-        console.error(`Error executing command: ${error}`);
+        console.error(`Error reading file: ${error}`);
         return reject(error);
       }
-      const node_id = stdout.trim();
+      const node_id = data.trim();
       resolve(node_id);
     });
   });
