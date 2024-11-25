@@ -18,21 +18,11 @@ const newStyle = {
   mappingType: 1,
   pattern: "Value #F",
   thresholds: [
-    "0.5",
-    "0.9"
+    "0.1",
+    "1.1"
   ],
-  type: "string",
+  type: "number",
   unit: "short",
-  valueMaps: [
-    {
-      text: "OK",
-      value: "1"
-    },
-    {
-      text: "Fail",
-      value: "0"
-    }
-  ]
 };
 
 const newTarget = {
