@@ -62,12 +62,12 @@
 <br/>
 
 ## Nesa
-Метрика status
+Метрики status, heartbeat и response 1h diff
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_metrics.sh)
 
 
-Колонка 
+Колонки 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_columns.sh)
 
