@@ -19,7 +19,7 @@ const newStyle = {
   pattern: "Value #G",
   thresholds: [
     "0.1",
-    "1.1"
+    "1.99"
   ],
   type: "number",
   unit: "short",
