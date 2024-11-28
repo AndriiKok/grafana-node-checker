@@ -85,6 +85,34 @@
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_columns.sh)
 
+<br/>
+<br/>
+<br/>
+
+## Hemi
+Метрика 
+
+	source .profile && bash <(curl -s )
+
+
+Колонка 
+
+	source .profile && bash <(curl -s )
+
+<br/>
+<br/>
+<br/>
+
+## Shardeum
+Метрика status
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Shardeum/shardeum_add_metric.sh)
+
+
+Колонка 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Shardeum/shardeum_add_columns.sh)
+
 
 
 <br/>
