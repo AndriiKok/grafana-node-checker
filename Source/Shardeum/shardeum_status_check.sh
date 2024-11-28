@@ -1,5 +1,6 @@
-#!/bin/bash
+#! /bin/bash
 #thanks for https://raw.githubusercontent.com/ipohosov/public-node-scripts/main/shardeum/shardeum_healthcheck.sh
+
 
 function get_status() {
     STATUS=$(docker exec -it shardeum-dashboard operator-cli status | grep status | awk -F': ' '{print $2}')
@@ -8,34 +9,28 @@ function get_status() {
 
 cd "$HOME" || exit
 
-printf "Check shardeum node status \n"
-NODE_STATUS=$(get_status)
-printf "Current status: ${NODE_STATUS}\n"
-
-if [ -z "$NODE_STATUS" ]; then
-    echo "Shardeum нода не запущена"
-    docker start shardeum-dashboard
-    node_status=0
-else
-    case "${NODE_STATUS}" in
-        *"Waiting-For-Network"*)
-            echo "Status is Waiting-For-Network"
-            node_status=1
-            ;;
-        *"standby"*)
-            echo "Status is Standby"
-            node_status=2
-            ;;
-        *"validating"*)
-            echo "Status is Validating"
-            node_status=3
-            ;;
-        *)
-            echo "Status is unknown or error"
-            node_status=0
-            ;;
-    esac
-fi
+while true
+do
+    printf "Check shardeum node status \n"
+    NODE_STATUS=$(get_status)
+    printf "Current status: ${NODE_STATUS}\n"
+    sleep 5s
+    if [ -z "$NODE_STATUS" ]; then
+        echo "Shardeum нода не запущена"
+        node_status=0
+    else
+      case "${NODE_STATUS}" in
+          *"waiting-for-network"*)
+              node_status=1
+              ;;
+          *"standby"*)
+              node_status=2
+              ;;
+          *"validating"*)
+              node_status=3
+              ;;
+      esac
+  fi
 
 # Create the file if it doesn't exist and write the status
 PROM_FILE="/var/lib/prometheus/node-exporter/shardeum_status.prom"
@@ -46,4 +41,5 @@ cat << EOF > "$PROM_FILE"
 shardeum_status $node_status
 EOF
 
-echo "Metrics written to file: $PROM_FILE"
+sleep 5m
+done
