@@ -71,6 +71,20 @@
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_columns.sh)
 
+<br/>
+<br/>
+<br/>
+
+## Sonaric
+Метрики status, heartbeat и response 1h diff
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_metrics.sh)
+
+
+Колонки 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_columns.sh)
+
 
 
 <br/>
