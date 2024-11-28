@@ -76,12 +76,12 @@
 <br/>
 
 ## Sonaric
-Метрики status, heartbeat и response 1h diff
+Метрика points 1h diff
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_metrics.sh)
 
 
-Колонки 
+Колонка 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_columns.sh)
 
