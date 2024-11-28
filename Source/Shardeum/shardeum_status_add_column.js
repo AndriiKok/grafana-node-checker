@@ -44,7 +44,7 @@ const newStyle = {
 };
 
 const newTarget = {
-  expr: 'shardeum_status_check{origin_prometheus=~"$origin_prometheus",job=~"$job"} - 0',
+  expr: 'shardeum_status{origin_prometheus=~"$origin_prometheus",job=~"$job"} - 0',
   format: "table",
   instant: true,
   refId: "H"
