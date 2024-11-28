@@ -18,6 +18,7 @@ do
     if [ -z "$NODE_STATUS" ]; then
         echo "Shardeum нода не запущена"
         node_status=0
+        cd $HOME/.shardeum/ && ./docker-up.sh
     else
       case "${NODE_STATUS}" in
           *"waiting-for-network"*)
