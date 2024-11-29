@@ -47,9 +47,9 @@ const getNodeID = async () => {
                 // Записываем node_id в .profile
                 fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
                 resolve(node_id);
-              }, 5000); // Ждем 5 секунд
+              }, 30000); // Ждем 5 секунд
             });
-          }, 10000); // Ждем 10 секунд
+          }, 30000); // Ждем 10 секунд
         });
       } else {
         const node_id = data.match(/node_id=([^\n]+)/)[1];
