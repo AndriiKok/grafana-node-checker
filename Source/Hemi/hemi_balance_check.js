@@ -28,7 +28,7 @@ const getNodeID = async () => {
 
           setTimeout(() => {
             // Выполняем команду для получения node_id
-            exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+'", (err, stdout, stderr) => {
+            exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+' | cut -d ' ' -f 1", (err, stdout, stderr) => {
               if (err) {
                 console.error(`Ошибка при получении node_id: ${err.message}`);
                 return resolve(null);
