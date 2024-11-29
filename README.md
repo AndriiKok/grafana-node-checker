@@ -90,14 +90,14 @@
 <br/>
 
 ## Hemi
-Метрика 
+Метрики balance 1h, txn 1h diff
 
-	source .profile && bash <(curl -s )
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_add_metrics.sh)
 
 
 Колонка 
 
-	source .profile && bash <(curl -s )
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_add_columns.sh)
 
 <br/>
 <br/>
