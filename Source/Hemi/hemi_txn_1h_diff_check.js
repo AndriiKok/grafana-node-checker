@@ -66,18 +66,33 @@ const getNodeID = async () => {
     const profilePath = `${process.env.HOME}/.profile`;
     fs.readFile(profilePath, 'utf8', (err, data) => {
       if (err || !data.includes('node_id=')) {
-        exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+' | cut -d ' ' -f 1", (err, stdout, stderr) => {
+        // Перезапускаем службу hemi и ждем 10 секунд
+        exec("sudo systemctl restart hemi", (err) => {
           if (err) {
-            console.error(`Ошибка при получении node_id: ${err.message}`);
+            console.error(`Ошибка при перезапуске службы hemi: ${err.message}`);
             return resolve(null);
           }
-          
-          // Подождем 5 секунд перед продолжением
+
           setTimeout(() => {
-            const node_id = stdout.trim();
-            fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
-            resolve(node_id);
-          }, 5000);
+            // Выполняем команду для получения node_id
+            exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+'", (err, stdout, stderr) => {
+              if (err) {
+                console.error(`Ошибка при получении node_id: ${err.message}`);
+                return resolve(null);
+              }
+
+              // Подождем 5 секунд перед продолжением
+              setTimeout(() => {
+                // Разделяем stdout по строкам и берем последнее значение
+                const node_ids = stdout.trim().split('\n');
+                const node_id = node_ids[node_ids.length - 1];
+
+                // Записываем node_id в .profile
+                fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
+                resolve(node_id);
+              }, 5000); // Ждем 5 секунд
+            });
+          }, 10000); // Ждем 10 секунд
         });
       } else {
         const node_id = data.match(/node_id=([^\n]+)/)[1];
@@ -86,6 +101,7 @@ const getNodeID = async () => {
     });
   });
 };
+
 
 
 
