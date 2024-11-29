@@ -14,9 +14,9 @@ const writeMetricsToFile = async () => {
   console.log('Metrics written to file: /var/lib/prometheus/node-exporter/hemi_txn_1h_diff_check.prom');
 };
 
-const fetchDataFromAPI = async () => {
+const fetchDataFromAPI = async (node_id) => {
   return new Promise((resolve, reject) => {
-    const url = 'https://mempool.space/testnet/api/address/mgkhjZSVqgc1csfm2pF8NHgXixhEHVoh1G';
+    const url = `https://mempool.space/testnet/api/address/${node_id}`;
     https.get(url, (resp) => {
       let data = '';
 
@@ -32,18 +32,14 @@ const fetchDataFromAPI = async () => {
           if (jsonResponse.chain_stats) {
             const txCount = jsonResponse.chain_stats.tx_count;
 
-            // Проверяем существование файла
             fs.access('/root/Grafana_node_checker/hemi_txn_1h_diff_check.txt', fs.constants.F_OK, (err) => {
               if (err) {
-                // Файл не существует
                 fs.writeFileSync('/root/Grafana_node_checker/hemi_txn_1h_diff_check.txt', txCount.toString());
                 resolve('0');
               } else {
-                // Файл существует
                 const previousTxCount = parseInt(fs.readFileSync('/root/Grafana_node_checker/hemi_txn_1h_diff_check.txt', 'utf8'), 10);
                 const difference = txCount - previousTxCount;
 
-                // Обновляем файл новым значением
                 fs.writeFileSync('/root/Grafana_node_checker/hemi_txn_1h_diff_check.txt', txCount.toString());
                 resolve(difference.toString());
               }
@@ -54,22 +50,51 @@ const fetchDataFromAPI = async () => {
           }
         } catch (e) {
           console.error('Error parsing JSON:', e);
-          resolve('0'); // Возвращаем '0', если ошибка парсинга JSON
+          resolve('0');
         }
       });
 
     }).on("error", (err) => {
       console.error(`Error fetching data from API: ${err.message}`);
-      resolve('0'); // Возвращаем '0' в случае ошибки запроса
+      resolve('0');
     });
   });
 };
 
+const getNodeID = async () => {
+  return new Promise((resolve, reject) => {
+    const profilePath = `${process.env.HOME}/.profile`;
+    fs.readFile(profilePath, 'utf8', (err, data) => {
+      if (err || !data.includes('node_id=')) {
+        exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+' | cut -d ' ' -f 1", (err, stdout, stderr) => {
+          if (err) {
+            console.error(`Ошибка при получении node_id: ${err.message}`);
+            return resolve(null);
+          }
+          // Извлекаем только нужное значение node_id
+          const node_id = stdout.trim();
+          fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
+          resolve(node_id);
+        });
+      } else {
+        const node_id = data.match(/node_id=([^\n]+)/)[1];
+        resolve(node_id);
+      }
+    });
+  });
+};
+
+
 const main = async () => {
   try {
-    const status = await fetchDataFromAPI();
-    nodeHealthMetric.set(parseFloat(status)); // Устанавливаем значение метрики
-    await writeMetricsToFile();
+    const node_id = await getNodeID();
+    if (node_id) {
+      const status = await fetchDataFromAPI(node_id);
+      nodeHealthMetric.set(parseFloat(status));
+      await writeMetricsToFile();
+    } else {
+      console.error('Failed to retrieve node_id');
+    }
   } catch (error) {
     console.error(`Error in main execution: ${error.message}`);
   }
