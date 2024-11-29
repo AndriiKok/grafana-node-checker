@@ -73,6 +73,8 @@ const getNodeID = async () => {
             return resolve(null);
           }
 
+          console.log("Перезапуск службы hemi выполнен. Ожидайте, пожалуйста...");
+
           setTimeout(() => {
             // Выполняем команду для получения node_id
             exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+' | cut -d ' ' -f 1", (err, stdout, stderr) => {
@@ -80,6 +82,8 @@ const getNodeID = async () => {
                 console.error(`Ошибка при получении node_id: ${err.message}`);
                 return resolve(null);
               }
+
+              console.log("Данные получены. Ожидайте, пожалуйста...");
 
               // Подождем 5 секунд перед продолжением
               setTimeout(() => {
@@ -101,9 +105,6 @@ const getNodeID = async () => {
     });
   });
 };
-
-
-
 
 const main = async () => {
   try {
