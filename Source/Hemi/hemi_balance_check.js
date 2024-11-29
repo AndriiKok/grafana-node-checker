@@ -24,10 +24,13 @@ const getNodeID = async () => {
             console.error(`Ошибка при получении node_id: ${err.message}`);
             return resolve(null);
           }
-          // Извлекаем только нужное значение node_id
-          const node_id = stdout.trim();
-          fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
-          resolve(node_id);
+          
+          // Подождем 5 секунд перед продолжением
+          setTimeout(() => {
+            const node_id = stdout.trim();
+            fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
+            resolve(node_id);
+          }, 5000);
         });
       } else {
         const node_id = data.match(/node_id=([^\n]+)/)[1];
@@ -36,6 +39,7 @@ const getNodeID = async () => {
     });
   });
 };
+
 
 const checkBalance = async (node_id) => {
   const url = `https://mempool.space/testnet/api/address/${node_id}`;
