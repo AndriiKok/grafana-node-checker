@@ -14,8 +14,31 @@ const writeMetricsToFile = async () => {
   console.log('Metrics written to file: /var/lib/prometheus/node-exporter/hemi_balance_check.prom');
 };
 
-const checkBalance = async () => {
-  const url = `https://mempool.space/testnet/api/address/mgkhjZSVqgc1csfm2pF8NHgXixhEHVoh1G`;
+const getNodeID = async () => {
+  return new Promise((resolve, reject) => {
+    const profilePath = `${process.env.HOME}/.profile`;
+    fs.readFile(profilePath, 'utf8', (err, data) => {
+      if (err || !data.includes('node_id=')) {
+        exec("journalctl -n 50 -u hemi -o cat | grep -oP '(?<=address )[^\s]+' | cut -d ' ' -f 1", (err, stdout, stderr) => {
+          if (err) {
+            console.error(`Ошибка при получении node_id: ${err.message}`);
+            return resolve(null);
+          }
+          // Извлекаем только нужное значение node_id
+          const node_id = stdout.trim();
+          fs.appendFileSync(profilePath, `\nnode_id=${node_id}`);
+          resolve(node_id);
+        });
+      } else {
+        const node_id = data.match(/node_id=([^\n]+)/)[1];
+        resolve(node_id);
+      }
+    });
+  });
+};
+
+const checkBalance = async (node_id) => {
+  const url = `https://mempool.space/testnet/api/address/${node_id}`;
   
   https.get(url, (resp) => {
     let data = '';
@@ -34,20 +57,34 @@ const checkBalance = async () => {
         const totalBalance = (chainBalance + mempoolBalance) / 100000000;
         
         nodeBalanceMetric.set(totalBalance);
-        console.log(`Current balance for address mgkhjZSVqgc1csfm2pF8NHgXixhEHVoh1G: ${totalBalance}`);
+        console.log(`Текущий баланс для адреса ${node_id}: ${totalBalance}`);
       } catch (parseError) {
-        console.error(`Error parsing response: ${parseError}`);
+        console.error(`Ошибка при парсинге ответа: ${parseError}`);
         nodeBalanceMetric.set(0);
-        console.log('Error parsing response');
+        console.log('Ошибка при парсинге ответа');
       }
       writeMetricsToFile();
     });
 
   }).on("error", (err) => {
-    console.error(`Error fetching data from API: ${err.message}`);
+    console.error(`Ошибка при запросе данных с API: ${err.message}`);
     nodeBalanceMetric.set(0);
     writeMetricsToFile();
   });
 };
 
-checkBalance();
+const main = async () => {
+  try {
+    const node_id = await getNodeID();
+    if (node_id) {
+      await checkBalance(node_id);
+      await writeMetricsToFile();
+    } else {
+      console.error('Не удалось получить node_id');
+    }
+  } catch (error) {
+    console.error(`Ошибка в основной функции: ${error.message}`);
+  }
+};
+
+main();
