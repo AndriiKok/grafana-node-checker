@@ -7,6 +7,13 @@ npm install prom-client fs child_process https
 curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_balance_check.js > "/root/Grafana_node_checker/hemi_balance_1h_check.js"
 curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_txn_1h_diff_check.js > "/root/Grafana_node_checker/hemi_txn_1h_diff_check.js"
 
+# Запрос значения node_id у пользователя
+read -p "Укажите значение node_id: " node_id
+
+# Замена текста your_node_id_here значением node_id
+sed -i "s/your_node_id_here/$node_id/g" "/root/Grafana_node_checker/hemi_balance_1h_check.js"
+sed -i "s/your_node_id_here/$node_id/g" "/root/Grafana_node_checker/hemi_txn_1h_diff_check.js"
+
 # Получаем абсолютный путь к nodejs
 node_path=$(which node)
 
