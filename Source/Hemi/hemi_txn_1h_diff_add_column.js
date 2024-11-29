@@ -14,7 +14,7 @@ const newStyle = {
     "rgba(50, 172, 45, 0.97)"
   ],
   dateFormat: "YYYY-MM-DD HH:mm:ss",
-  decimals: 2,
+  decimals: 0,
   mappingType: 1,
   pattern: "Value #I",
   thresholds: [
