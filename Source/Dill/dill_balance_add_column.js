@@ -22,7 +22,7 @@ const newStyle = {
         "3601"
       ],
       "type": "number",
-      "unit": "short"
+      "unit": "none"
     }
 
 const newTarget = {
