@@ -29,7 +29,7 @@ fetchValidatorByPubkey(pubkey).then(balance => {
     
     // Создание метрики
     const nodeHealthMetric = new client.Gauge({
-      name: 'dill_balance_check',
+      name: 'dill_balance_1h_check',
       help: 'Dill balance checker'
     });
 
@@ -39,8 +39,8 @@ fetchValidatorByPubkey(pubkey).then(balance => {
     // Запись метрик в файл
     const writeMetricsToFile = async () => {
       const metrics = await client.register.metrics();
-      fs.writeFileSync('/var/lib/prometheus/node-exporter/dill_balance_check.prom', metrics);
-      console.log('Metrics written to file: /var/lib/prometheus/node-exporter/dill_balance_check.prom');
+      fs.writeFileSync('/var/lib/prometheus/node-exporter/dill_balance_1h_check.prom', metrics);
+      console.log('Metrics written to file: /var/lib/prometheus/node-exporter/dill_balance_1h_check.prom');
     };
 
     writeMetricsToFile();
