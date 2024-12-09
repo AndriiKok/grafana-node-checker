@@ -5,6 +5,9 @@ output=$(cd /root/dill && ./show_pubkey.sh)
 
 # Подсчет количества записей Account
 account_count=$(echo "$output" | grep -o 'Account [0-9]' | wc -l)
+source .profile
+sudo apt-get update
+npm install prom-client axios fs
 
 # Получение абсолютного пути к nodejs
 node_path=$(which node)
