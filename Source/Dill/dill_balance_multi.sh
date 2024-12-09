@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Чтение данных из файла
-output=$(bash /root/dill/show_pubkey.sh)
+output=$(cd /root/dill && ./show_pubkey.sh)
 
 # Подсчет количества записей Account
 account_count=$(echo "$output" | grep -o 'Account [0-9]' | wc -l)
