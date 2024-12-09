@@ -58,7 +58,7 @@
 <br/>
 
 ## Dill
-Для тех, у кого один валидатор на ноде
+Для тех, у кого один валидатор на ноде <br/>
 Метрики healthcheck и balance 1h
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_balance_multi.sh)
@@ -68,7 +68,9 @@
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_add_columns.sh)
 
-Для бояр с 2 и более валидаторами на ноде при запуске скрипта нужно указать максимальное количество валидаторов, которые могут отображаться в дашборде. Добавится новый виджет специально для Dill
+<br/>
+<br/>
+Для бояр с 2 и более валидаторами на ноде при запуске скрипта нужно указать максимальное количество валидаторов, которые могут отображаться в дашборде. Добавится новый виджет специально для Dill <br/>
 Метрики healthcheck и balance 1h
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_add_metrics.sh)
