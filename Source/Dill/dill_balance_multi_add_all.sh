@@ -77,6 +77,8 @@ for i in $(seq 1 $max_validators); do
   sed -i "s/Account_column_name/Account$(($i-1))/g" /root/adding_panel/dill_balance_multi_add_column_${i}.js
   sed -i "s/dill_balance_account/dill_balance_account$(($i-1))/g" /root/adding_panel/dill_balance_multi_add_column_${i}.js
   sed -i "s/V_V/${letter}/g" /root/adding_panel/dill_balance_multi_add_column_${i}.js
+
+  $(which node) /root/adding_panel/dill_balance_multi_add_column_${i}.js
 done
 
 # Удаление папки /root/adding_panel вместе с её содержимым
