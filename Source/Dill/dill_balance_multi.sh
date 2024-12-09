@@ -12,7 +12,7 @@ node_path=$(which node)
 # Основной цикл
 for i in $(seq 0 $(($account_count - 1))); do
   # Извлечение pubkey для текущего аккаунта
-  pubkey=$(echo "$output" | awk -v acc="Account $i" '$0 ~ acc {getline; print}' | grep -oP '(0x[0-9a-fA-F]{64})')
+  pubkey=$(echo "$output" | awk -v acc="Account $i" '$0 ~ acc {getline; print}' | grep -oP '(0x[0-9a-fA-F]{96})')
 
   # Проверка на пустое значение pubkey
   if [ -z "$pubkey" ]; then
