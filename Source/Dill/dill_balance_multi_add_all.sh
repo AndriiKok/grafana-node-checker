@@ -48,7 +48,7 @@ npm install axios
 
 # Запуск файла add_new_panel.js с помощью Node.js
 echo "Создаём новую панель для вашего дашборда..."
-PANEL_DILL_UID=$($(which node) /root/adding_panel/add_new_panel.js | grep 'PANEL_UID' | awk -F': ' '{print $2}')
+PANEL_DILL_UID=$($(which node) /root/adding_panel/dill_validators_balance_panel.js | grep 'PANEL_UID' | awk -F': ' '{print $2}')
 
 # Проверка успешности выполнения скрипта
 if [ -n "$PANEL_DILL_UID" ]; then echo "Готово, обновите свой дашборд" 
