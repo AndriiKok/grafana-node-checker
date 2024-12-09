@@ -11,6 +11,7 @@ npm install prom-client axios fs
 
 # Получение абсолютного пути к nodejs
 node_path=$(which node)
+mkdir /root/Grafana_node_checker
 
 # Основной цикл
 for i in $(seq 0 $(($account_count - 1))); do
