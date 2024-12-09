@@ -78,7 +78,7 @@
 
 Виджет и колонки 
 
-	source .profile && bash <(curl -s )
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_balance_multi_add_all.sh)
 
 <br/>
 <br/>
