@@ -98,34 +98,6 @@
 <br/>
 <br/>
 
-## Sonaric
-Метрика points 1h diff
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_metrics.sh)
-
-
-Колонка 
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Sonaric/sonaric_add_columns.sh)
-
-<br/>
-<br/>
-<br/>
-
-## Hemi
-Метрики balance 1h, txn 1h diff
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_add_metrics.sh)
-
-
-Колонка 
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Hemi/hemi_add_columns.sh)
-
-<br/>
-<br/>
-<br/>
-
 ## Shardeum
 Метрика status
 
