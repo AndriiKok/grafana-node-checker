@@ -57,6 +57,19 @@
 <br/>
 <br/>
 
+## Drosera
+Метрика healthcheck
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Drosera/drosera_add_metrics.sh)
+
+
+Колонки 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Drosera/drosera_add_columns.sh)
+<br/>
+<br/>
+<br/>
+
 ## Dill
 Для тех, у кого один валидатор на ноде <br/>
 Метрики healthcheck и balance 1h
@@ -80,37 +93,6 @@
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Dill/dill_balance_multi_add_all.sh)
 
-<br/>
-<br/>
-<br/>
-
-## Nesa
-Метрики status, heartbeat и response 1h diff
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_metrics.sh)
-
-
-Колонки 
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Nesa/nesa_add_columns.sh)
-
-<br/>
-<br/>
-<br/>
-
-## Shardeum
-Метрика status
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Shardeum/shardeum_add_metric.sh)
-
-
-Колонка 
-
-	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Shardeum/shardeum_add_columns.sh)
-
-
-
-<br/>
 <br/>
 <br/>
 <br/>
