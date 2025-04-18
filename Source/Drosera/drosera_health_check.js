@@ -14,7 +14,8 @@ const writeMetricsToFile = async () => {
 };
 
 const checkHealth = async () => {
-  exec('curl --location "http://$(curl -s ipv4.icanhazip.com):31314" --header 'Content-Type: application/json' --data '{"jsonrpc":"2.0","method":"drosera_healthCheck","params":[],"id":1}'', (error, stdout, stderr) => {
+  exec(`curl --location "http://$(curl -s ipv4.icanhazip.com):31314" --header 'Content-Type: application/json' --data '{"jsonrpc":"2.0","method":"drosera_healthCheck","params":[],"id":1}'`, 
+  (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing script: ${error}`);
       nodeHealthMetric.set(0);
