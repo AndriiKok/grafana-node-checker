@@ -34,10 +34,10 @@ echo "Значения успешно добавлены или загружен
 # Скачиваем скрипт и вставляем значения переменных
 mkdir -p /root/adding_panel_column
 curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Drosera/drosera_health_add_column.js > "/root/adding_panel_column/drosera_health_add_column.js"
-sed -i "s/server_ip/${GRAFANA_SERVER_IP}/g" /root/adding_panel_column/waku_health_add_column.js
-sed -i "s/api_key/${GRAFANA_API_KEY}/g" /root/adding_panel_column/waku_health_add_column.js
-sed -i "s/dash_uid/${DASHBOARD_UID}/g" /root/adding_panel_column/waku_health_add_column.js
-sed -i "s/panel_uid/${PANEL_UID}/g" /root/adding_panel_column/waku_health_add_column.js
+sed -i "s/server_ip/${GRAFANA_SERVER_IP}/g" /root/adding_panel_column/drosera_health_add_column.js
+sed -i "s/api_key/${GRAFANA_API_KEY}/g" /root/adding_panel_column/drosera_health_add_column.js
+sed -i "s/dash_uid/${DASHBOARD_UID}/g" /root/adding_panel_column/drosera_health_add_column.js
+sed -i "s/panel_uid/${PANEL_UID}/g" /root/adding_panel_column/drosera_health_add_column.js
 
 echo "Устанавливаем требуемые пакеты npm..."
 source ~/.profile
