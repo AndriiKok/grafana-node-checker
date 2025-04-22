@@ -11,7 +11,7 @@ node_path=$(which node)
 
 # Добавляем файл в крон с частотой выполнения каждую минуту
 source .profile
-cron_entry="*/5 * * * * $node_path /root/Grafana_node_checker/ritual_health_check.js"
+cron_entry="* * * * * $node_path /root/Grafana_node_checker/ritual_health_check.js"
 sudo crontab -l | { cat; echo "$cron_entry"; } | sudo crontab -
 
 # Добавляем в сервисник Node Exporter ключ для запуска сервиса с папкой с новой метрикой
