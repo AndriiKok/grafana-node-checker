@@ -44,6 +44,20 @@
 <br/>
 <br/>
 
+## Ritual
+Метрика healthcheck
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_add_metrics.sh)
+
+
+Колонки 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_add_columns.sh)
+<br/>
+<br/>
+<br/>
+
+
 ## Waku
 Метрики healthcheck и peers
 
