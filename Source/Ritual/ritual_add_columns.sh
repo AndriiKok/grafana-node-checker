@@ -44,7 +44,7 @@ source ~/.profile
 npm install axios
 
 # Запуск файла add_new_panel.js с помощью Node.js
-echo "Добавляем новые колонки для Waku..."
+echo "Добавляем новые колонки для Ritual..."
 $(which node) /root/adding_panel_column/ritual_health_add_column.js
 
 # Проверка успешности выполнения скрипта 
