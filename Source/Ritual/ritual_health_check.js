@@ -14,7 +14,7 @@ const writeMetricsToFile = async () => {
 };
 
 const checkHealth = async () => {
-  exec("curl 0.0.0.0:4321/health", 
+  exec('curl 0.0.0.0:4321/health', 
   (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing script: ${error}`);
