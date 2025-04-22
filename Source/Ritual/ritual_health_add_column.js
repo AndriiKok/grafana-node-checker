@@ -6,7 +6,7 @@ const dashboardUid = 'dash_uid';
 const panelId = panel_uid;
 
 const newStyle = {
-  alias: "Ritual Health 5m",
+  alias: "Ritual Health",
   colorMode: "cell",
   colors: [
     "rgba(245, 54, 54, 0.9)",
