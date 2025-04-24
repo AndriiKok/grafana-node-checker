@@ -4,11 +4,6 @@ let counter = 0;
 
 function checkHealth() {
     exec("curl -s 0.0.0.0:4321/health", (error, stdout) => {
-        if (error) {
-            console.error(`Ошибка при выполнении curl: ${error.message}`);
-            return;
-        }
-
         if (stdout.includes("healthy")) {
             console.log("Всё работает хорошо");
             counter = 0;
