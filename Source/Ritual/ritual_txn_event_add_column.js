@@ -39,7 +39,7 @@ const newStyle = {
     {
       text: "~4d",
       value: "4"
-    }
+    },
     {
       text: "O~5dK",
       value: "5"
@@ -47,7 +47,7 @@ const newStyle = {
     {
       text: "~6d",
       value: "6"
-    }
+    },
     {
       text: "~7d",
       value: "7"
