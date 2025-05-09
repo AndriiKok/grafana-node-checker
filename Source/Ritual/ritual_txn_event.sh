@@ -1,7 +1,7 @@
 mkdir -p /root/Grafana_node_checker
 source .profile
 sudo apt-get update
-npm install prom-client fs child_process https
+npm install prom-client fs child_process https ethers
 
 # Скачиваем скрипт с чекером
 curl -sSL https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_txn_event.js > "/root/Grafana_node_checker/ritual_txn_event.js"
