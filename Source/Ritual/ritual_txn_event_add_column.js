@@ -41,7 +41,7 @@ const newStyle = {
       value: "4"
     },
     {
-      text: "O~5dK",
+      text: "~5d",
       value: "5"
     },
     {
