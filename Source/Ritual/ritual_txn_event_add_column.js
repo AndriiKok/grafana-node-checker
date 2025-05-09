@@ -31,7 +31,7 @@ const newStyle = {
     {
       text: "~2d",
       value: "2"
-    }
+    },
     {
       text: "~3d",
       value: "3"
