@@ -54,6 +54,17 @@
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_add_columns.sh)
 <br/>
+
+Метрика txn_event
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_txn_event.sh)
+
+
+Колонки 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_txn_event_add_column.sh)
+
+<br/>
 <br/>
 <br/>
 
