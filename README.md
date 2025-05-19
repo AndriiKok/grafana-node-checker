@@ -50,7 +50,7 @@
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_add_metrics.sh)
 
 
-Колонки 
+Колонка 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_add_columns.sh)
 <br/>
@@ -60,10 +60,23 @@
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_txn_event.sh)
 
 
-Колонки 
+Колонка 
 
 	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Ritual/ritual_txn_event_add_column.sh)
 
+<br/>
+<br/>
+<br/>
+
+## Pipe
+Метрика healthcheck
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Pipe/pipe_add_metrics.sh)
+
+
+Колонка 
+
+	source .profile && bash <(curl -s https://raw.githubusercontent.com/AndriiKok/grafana-node-checker/refs/heads/main/Source/Pipe/pipe_add_columns.sh)
 <br/>
 <br/>
 <br/>
